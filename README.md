@@ -2,6 +2,8 @@
 
 A simple web-based tool that generates QR codes for WiFi networks. Users can easily share their WiFi credentials by generating a QR code that others can scan with their smartphones to connect automatically.
 
+This was all coded quickly by Aider in a few minutes and about 10 cents.  See full post at: [Aider WiFi QR Code Generator](https://thingsilearned.com/things/aider-wifiqr/)
+
 ## Features
 
 - Generate QR codes for WiFi networks
