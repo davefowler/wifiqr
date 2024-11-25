@@ -10,6 +10,12 @@ A simple web-based tool that generates QR codes for WiFi networks. Users can eas
 - Mobile-friendly design
 - No server required - runs entirely in the browser
 
+## Hosted at
+
+You don't have to download this - you can just go use it.  It's hosted at
+
+https://wifiqrcodegenerator.netlify.app/
+
 ## Usage
 
 1. Open `index.html` in a web browser
@@ -24,7 +30,7 @@ A simple web-based tool that generates QR codes for WiFi networks. Users can eas
 Simply clone this repository and open `index.html` in a web browser:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/wifi-qr-generator.git
+git clone https://github.com/davefowler/wifiqr.git
 cd wifi-qr-generator
 open index.html
 ```
