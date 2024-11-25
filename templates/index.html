@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .wifi-form {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .show-password {
+            margin-top: 5px;
+        }
+        button {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+        }
+        .wifi-symbol {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .qr-code {
+            margin: 20px auto;
+        }
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+            }
+            .wifi-form {
+                display: none;
+            }
+            .result {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wifi-form">
+        <h1>WiFi QR Code Generator</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="ssid">Network Name (SSID):</label>
+                <input type="text" id="ssid" name="ssid" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="show-password">
+                    <input type="checkbox" id="show_password" name="show_password" checked>
+                    <label for="show_password">Show password in printout</label>
+                </div>
+            </div>
+            <button type="submit">Generate QR Code</button>
+        </form>
+    </div>
+
+    {% if qr_code %}
+    <div class="result">
+        <div class="wifi-symbol">📶</div>
+        <h2>Connect to WiFi</h2>
+        <p><strong>Network:</strong> {{ network_info.ssid }}</p>
+        {% if network_info.show_password %}
+        <p><strong>Password:</strong> {{ network_info.password }}</p>
+        {% endif %}
+        <div class="qr-code">
+            <img src="data:image/png;base64,{{ qr_code }}" alt="WiFi QR Code">
+            <p>Scan to connect</p>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
